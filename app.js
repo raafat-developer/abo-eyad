@@ -749,7 +749,7 @@ function exportToPDF() {
 // Load JSON data files dynamically
 async function loadDatasets() {
     try {
-        const fullRes = await fetch('menu data .json');
+        const fullRes = await fetch('menu.json');
         if (fullRes.ok) {
             const rawFull = await fullRes.json();
             parseFullData(rawFull);
