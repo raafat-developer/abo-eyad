@@ -757,16 +757,6 @@ async function loadDatasets() {
     } catch (e) {
         console.log('Error loading menu data .json:', e);
     }
-
-    try {
-        const shawrmaRes = await fetch('menu.json');
-        if (shawrmaRes.ok) {
-            const rawShawrma = await shawrmaRes.json();
-            parseShawrmaData(rawShawrma);
-        }
-    } catch (e) {
-        console.log('Error loading menu.json:', e);
-    }
 }
 
 function parseFullData(json) {
