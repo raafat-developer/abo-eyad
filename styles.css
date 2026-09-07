@@ -399,12 +399,30 @@ body::before {
     width: auto;
 }
 
+.contact-phone-link {
+    color: #F3F4F6 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+}
+
+.contact-phone-link:hover {
+    color: var(--text-gold) !important;
+    text-decoration: underline !important;
+}
+
 .whatsapp-row {
-    color: #4ADE80;
+    color: #4ADE80 !important;
+    text-decoration: none !important;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.whatsapp-row:hover {
+    opacity: 0.9;
+    transform: translateX(-2px);
 }
 
 .whatsapp-row i {
-    color: #4ADE80;
+    color: #4ADE80 !important;
 }
 
 .address-row {
