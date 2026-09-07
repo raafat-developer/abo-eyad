@@ -367,6 +367,14 @@ body::before {
 .contact-social-link {
     color: var(--text-gold) !important;
     text-decoration: none !important;
+.download-row {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .download-row {
+        display: flex;
+    }
 }
 
 .contact-download-link {
