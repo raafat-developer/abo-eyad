@@ -367,6 +367,8 @@ body::before {
 .contact-social-link {
     color: var(--text-gold) !important;
     text-decoration: none !important;
+}
+
 .download-row {
     display: none;
 }
