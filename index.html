@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم أبو إياد السوري - قائمة الطعام والأسعار الرسمية</title>
+    <meta name="description"
+        content="منيو مطعم أبو إياد السوري - الشاورما عندنا دلع بطن - أشهى الوجبات والسندوتشات والبروست والعروض العائلية.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&family=Changa:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- html2pdf Export Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation & Action Control Toolbar (Non-printable) -->
+    <header class="app-toolbar no-print">
+        <div class="toolbar-container">
+            <div class="brand-info">
+                <img src="logo.png" alt="لوجو أبو إياد السوري" class="toolbar-brand-logo">
+                <div>
+                    <h1 class="toolbar-title" id="toolbar-restaurant-name">أبو إياد السوري</h1>
+                    <p class="toolbar-subtitle" id="toolbar-tagline">هيغير مفهوم الشاورما - نكهة سورية تكتب الحكاية</p>
+                </div>
+            </div>
+
+            <div class="toolbar-actions">
+                <div class="dataset-switcher">
+                    <button id="btn-ds-full" class="ds-btn active" title="عرض جميع الأقسام والعروض والوجبات">
+                        <i class="fa-solid fa-fire"></i> المنيو الكامل والعروض
+                    </button>
+                    <button id="btn-ds-shawrma" class="ds-btn" title="عرض قسم الشاورما فقط من shawrma_menu.json">
+                        <i class="fa-solid fa-utensils"></i> منيو الشاورما فقط
+                    </button>
+                </div>
+
+                <div class="view-mode-switcher">
+                    <button id="btn-view-poster" class="view-btn active">
+                        <i class="fa-solid fa-image"></i> تصميم المنيو الأصلي
+                    </button>
+                    <button id="btn-view-interactive" class="view-btn">
+                        <i class="fa-solid fa-mobile-screen-button"></i> المنيو التفاعلي والطلب
+                    </button>
+                </div>
+
+                <a href="assets/menu.png" download="منيو_أبو_إياد_السوري.png" class="action-btn download-btn"
+                    title="تحميل صورة المنيو عالية الجودة">
+                    <i class="fa-solid fa-file-arrow-down"></i> تحميل صورة المنيو
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+        <!-- ================= POSTER MENU VIEW (Exact New Design) ================= -->
+        <section id="poster-view" class="poster-container">
+            <div class="poster-frame-fiery">
+
+                <!-- TOP HEADER HERO BANNER -->
+                <div class="poster-top-hero">
+                    <!-- Left Contact Info Pill -->
+                    <div class="top-contact-card">
+                        <div class="contact-pill-head">
+                            <i class="fa-solid fa-heart"></i> الشاورما عندنا دلع بطن
+                        </div>
+                        <div class="contact-pill-body">
+                            <div class="contact-row">
+                                <i class="fa-solid fa-phone"></i>
+                                <span dir="ltr">01042822787 - 01042827982</span>
+                            </div>
+                            <div class="contact-row whatsapp-row">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <span dir="ltr">01212904055</span>
+                            </div>
+                            <div class="contact-row">
+                                <a href="https://www.facebook.com/profile.php?id=61593782112073" target="_blank"
+                                    class="contact-social-link">
+                                    <i class="fa-brands fa-facebook"></i>
+                                    <span> ابو اياد السوري</span>
+                                </a>
+                            </div>
+                            <div class="contact-row address-row">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>مشتول السوق - شارع السوق بجوار جمال شرف</span>
+                            </div>
+                            <div class="contact-row download-row">
+                                <a href="assets/menu.png" download="منيو_أبو_إياد_السوري.png"
+                                    class="contact-download-link">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>تحميل كارت المنيو (صورة)</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Center Fiery Emblem Logo -->
+                    <div class="top-emblem-wrapper">
+                        <img src="logo.png" alt="لوجو أبو إياد السوري" class="top-emblem-img">
+                    </div>
+
+                    <!-- Right Tagline & Photos Banner -->
+                    <div class="top-right-banner">
+                        <div class="banner-title-box">
+                            <h2>الشاورما عندنا<br><span>دلع بطن</span></h2>
+                        </div>
+                        <div class="banner-photos">
+                            <div class="photo-circle border-orange">
+                                <img src="assets/platter_dish.jpg" alt="وجبة شاورما عربي">
+                            </div>
+                            <div class="photo-circle border-red">
+                                <img src="assets/broast_burger.jpg" alt="وجبات بروست">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAIN THREE COLUMN GRID -->
+                <div class="poster-three-columns">
+
+                    <!-- COLUMN 1 (RIGHT IN RTL) -->
+                    <div class="poster-col">
+                        <!-- Hero Orange Branding Box -->
+                        <div class="left-hero-orange">
+                            <div class="hero-doodles">
+                                <i class="fa-solid fa-pepper-hot doodle-icon d1"></i>
+                                <i class="fa-solid fa-utensils doodle-icon d2"></i>
+                            </div>
+                            <h2 class="brand-arabic">أبو إياد السوري</h2>
+                            <span class="brand-english">— Syrian Restaurant —</span>
+                            <div class="brand-slogan-pills">
+                                <span class="slogan-tag">هيغير مفهوم الشاورما</span>
+                                <span class="slogan-sub">نكهة سورية تكتب الحكاية</span>
+                            </div>
+                        </div>
+
+                        <div id="col1-categories-container" class="categories-stack">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 2 (MIDDLE IN RTL) -->
+                    <div class="poster-col">
+                        <div id="col2-categories-container" class="categories-stack">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </div>
+
+                    <!-- COLUMN 3 (LEFT IN RTL) -->
+                    <div class="poster-col">
+                        <div id="col3-categories-container" class="categories-stack">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- BOTTOM FOOTER BAR -->
+                <div class="poster-bottom-footer">
+                    <div class="social-handles">
+                        <a href="https://www.facebook.com/profile.php?id=61593782112073" target="_blank"
+                            rel="noopener noreferrer" title="زيارة صفحة فيسبوك مطعم أبو إياد السوري">
+                            <i class="fa-brands fa-facebook"></i>
+                            <span>fb: Abu Eyad Souri</span>
+                        </a>
+                    </div>
+                    <div class="footer-notes">
+                        <span>* جميع الوجبات تقدم مع عيش سوري وثومية ومخلل وبطاطس</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= INTERACTIVE DIGITAL MENU VIEW ================= -->
+        <section id="interactive-view" class="interactive-container hidden no-print">
+            <div class="interactive-wrapper">
+                <!-- Search & Category Filters -->
+                <div class="search-filter-bar">
+                    <div class="search-input-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="menu-search"
+                            placeholder="ابحث عن أصناف، شاورما، بروست، عروض خاصة، فتة...">
+                        <button id="clear-search" class="clear-btn hidden"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <div class="category-pills-scroll" id="interactive-category-pills">
+                        <!-- Category pills dynamically added -->
+                    </div>
+                </div>
+
+                <!-- Interactive Main Grid -->
+                <div class="interactive-main-grid">
+                    <!-- Items Catalog -->
+                    <div class="items-catalog-container" id="interactive-items-catalog">
+                        <!-- Items rendered dynamically -->
+                    </div>
+
+                    <!-- Sticky Order Panel (Drawer on Mobile) -->
+                    <aside class="order-summary-panel">
+                        <div class="drawer-mobile-header">
+                            <span class="drawer-pull-handle"></span>
+                            <button id="close-mobile-drawer" class="close-drawer-btn" aria-label="إغلاق">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+
+                        <div class="panel-header">
+                            <h3><i class="fa-solid fa-fire-flame-simple"></i> طلبك الحالي</h3>
+                            <button id="clear-cart" class="text-danger-btn"><i class="fa-solid fa-trash-can"></i> تفريغ
+                                السلة</button>
+                        </div>
+
+                        <div class="cart-items-list" id="cart-items-list">
+                            <div class="empty-cart-state">
+                                <i class="fa-solid fa-utensils empty-icon"></i>
+                                <p>السلة فارغة</p>
+                                <span>اضغط على + لإضافة أصناف لطلبك</span>
+                            </div>
+                        </div>
+
+                        <!-- Customer Details Form -->
+                        <div class="customer-info-section">
+                            <div class="customer-info-title">
+                                <i class="fa-solid fa-user-pen"></i>
+                                <span>بيانات التوصيل للطلب</span>
+                            </div>
+                            <div class="cust-input-group">
+                                <label for="cust-name"><i class="fa-solid fa-user"></i> الاسم الكريم <span
+                                        class="req">*</span></label>
+                                <input type="text" id="cust-name" placeholder="اكتب اسمك الثلاثي..."
+                                    autocomplete="name">
+                            </div>
+                            <div class="cust-input-group">
+                                <label for="cust-phone"><i class="fa-solid fa-phone"></i> رقم الهاتف للتواصل <span
+                                        class="req">*</span></label>
+                                <input type="tel" id="cust-phone" placeholder="01xxxxxxxxx" autocomplete="tel">
+                            </div>
+                            <div class="cust-input-group">
+                                <label for="cust-address"><i class="fa-solid fa-location-dot"></i> العنوان والمنطقة
+                                    <span class="req">*</span></label>
+                                <textarea id="cust-address" rows="2"
+                                    placeholder="المنطقة، الشارع، رقم الشقة أو علامة مميزة..."></textarea>
+                            </div>
+                            <div class="cust-input-group">
+                                <label for="cust-notes"><i class="fa-solid fa-note-sticky"></i> ملاحظات إضافية</label>
+                                <input type="text" id="cust-notes" placeholder="مثال: بدون تومية، كاتشب زيادة...">
+                            </div>
+                        </div>
+
+                        <div class="panel-footer">
+                            <div class="cart-total-row">
+                                <span>المجموع الإجمالي:</span>
+                                <strong id="cart-total-price">0 ج.م</strong>
+                            </div>
+                            <div class="delivery-fee-badge">
+                                <i class="fa-solid fa-motorcycle"></i>
+                                <span>ستتم إضافة رسوم التوصيل حسب المنطقة</span>
+                            </div>
+
+                            <button id="btn-whatsapp-order" class="btn-whatsapp-send disabled">
+                                <i class="fa-brands fa-whatsapp"></i> إرسال الطلب عبر الواتساب
+                            </button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floating Mobile Cart Bar -->
+        <div id="mobile-cart-bar" class="mobile-cart-bar hidden no-print">
+            <div class="mobile-cart-info">
+                <span class="mobile-cart-badge" id="mobile-cart-count">0</span>
+                <div class="mobile-cart-price-box">
+                    <span class="lbl">طلبك الحالي:</span>
+                    <strong id="mobile-cart-total">0 ج.م</strong>
+                    <span class="mobile-delivery-hint">+ رسوم التوصيل</span>
+                </div>
+            </div>
+            <button id="open-mobile-drawer" class="btn-open-drawer">
+                <span>عرض الطلب والبيانات</span>
+                <i class="fa-solid fa-chevron-up"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Backdrop Overlay -->
+        <div id="mobile-drawer-backdrop" class="mobile-drawer-backdrop hidden no-print"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer no-print">
+        <p>مطعم <strong>أبو إياد السوري</strong> | هيغير مفهوم الشاورما - نكهة سورية تكتب الحكاية | <a
+                href="https://www.facebook.com/profile.php?id=61593782112073" target="_blank" rel="noopener noreferrer"
+                class="footer-fb-link"><i class="fa-brands fa-facebook"></i> صفحتنا على الفيسبوك</a></p>
+    </footer>
+
+    <!-- Custom Fiery Alert / Confirm Modal -->
+    <div id="custom-alert" class="custom-alert-overlay hidden" role="dialog" aria-modal="true">
+        <div class="custom-alert-card">
+            <div class="alert-icon-wrapper">
+                <i class="fa-solid fa-triangle-exclamation" id="alert-icon"></i>
+            </div>
+            <div class="alert-body">
+                <h4 id="alert-title">تنبيه</h4>
+                <p id="alert-message">يرجى استكمال البيانات</p>
+            </div>
+            <div class="alert-actions-row">
+                <button id="alert-cancel-btn" class="alert-btn btn-alert-cancel hidden">إلغاء</button>
+                <button id="alert-close-btn" class="alert-btn btn-alert-confirm">حسناً، فهمت</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- App Logic Script -->
+    <script src="app.js"></script>
+</body>
+
+</html>
