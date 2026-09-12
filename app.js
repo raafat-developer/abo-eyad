@@ -10,7 +10,7 @@ const FALLBACK_MENU_DATA = {
     "contact": {
         "messenger": "ابو اياد السوري",
         "phone": "01042822787 - 01042827982",
-        "whatsapp": "01212904055",
+        "whatsapp": "01098826322",
         "socialMedia": {
             "facebook": "https://www.facebook.com/profile.php?id=61593782112073"
         }
@@ -1320,7 +1320,7 @@ function sendWhatsAppOrder() {
     }
 
     // Destination phone number (Abu Eyad El Souri WhatsApp)
-    let rawPhone = (activeData && activeData.contact && activeData.contact.whatsapp) ? activeData.contact.whatsapp.replace(/[^0-9]/g, '') : '01212904055';
+    let rawPhone = (activeData && activeData.contact && activeData.contact.whatsapp) ? activeData.contact.whatsapp.replace(/[^0-9]/g, '') : '01098826322';
     let targetPhone = rawPhone;
     if (rawPhone.startsWith('20')) {
         targetPhone = rawPhone;
