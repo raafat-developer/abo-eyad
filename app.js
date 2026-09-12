@@ -848,7 +848,7 @@ function parseFullData(json) {
     fullMenuData = {
         restaurant: json.restaurant || "أبو إياد السوري (Abu Eyad El Souri)",
         tagline: json.slogan || json.tagline || "هيغير مفهوم الشاورما - نكهة سورية تكتب الحكاية",
-        contact: json.contact || { phone: "01042822787 - 01042827982", whatsapp: "01212904055", messenger: "ابو اياد السوري" },
+        contact: json.contact || { phone: "01042822787 - 01042827982", whatsapp: "01098826322", messenger: "ابو اياد السوري" },
         location: json.location || { address: "مشتول السوق شارع السوق بجوار جمال شرف" },
         categories: cats
     };
@@ -903,7 +903,7 @@ function parseShawrmaData(json) {
         shawrmaData = {
             restaurant: json.restaurant || "أبو إياد السوري",
             tagline: json.tagline || "الشاورما عندنا دلع بطن",
-            contact: json.contact || { phone: "01042822787 - 01042827982", whatsapp: "01212904055", messenger: "ابو اياد السوري" },
+            contact: json.contact || { phone: "01042822787 - 01042827982", whatsapp: "01098826322", messenger: "ابو اياد السوري" },
             categories: cats
         };
     }
