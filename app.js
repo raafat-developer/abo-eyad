@@ -419,6 +419,9 @@ const custNameInput = document.getElementById('cust-name');
 const custPhoneInput = document.getElementById('cust-phone');
 const custAddressInput = document.getElementById('cust-address');
 const custNotesInput = document.getElementById('cust-notes');
+const btnTypeDelivery = document.getElementById('btn-type-delivery');
+const btnTypePickup = document.getElementById('btn-type-pickup');
+let selectedOrderType = 'delivery';
 
 // Mobile Drawer Elements
 const orderSummaryPanel = document.querySelector('.order-summary-panel');
@@ -696,6 +699,50 @@ function setupEventListeners() {
 
     if (btnWhatsappOrder) {
         btnWhatsappOrder.addEventListener('click', sendWhatsAppOrder);
+    }
+
+    // Order Type Selector (Delivery vs Pickup)
+    if (btnTypeDelivery && btnTypePickup) {
+        btnTypeDelivery.addEventListener('click', () => {
+            selectedOrderType = 'delivery';
+            btnTypeDelivery.classList.add('active');
+            btnTypePickup.classList.remove('active');
+
+            if (custAddressInput && custAddressInput.parentElement) {
+                custAddressInput.parentElement.style.display = 'flex';
+            }
+
+            const badge = document.querySelector('.delivery-fee-badge');
+            if (badge) {
+                badge.style.display = 'flex';
+                badge.innerHTML = '<i class="fa-solid fa-motorcycle"></i> <span>ستتم إضافة رسوم التوصيل حسب المنطقة</span>';
+            }
+
+            const mobileHint = document.querySelector('.mobile-delivery-hint');
+            if (mobileHint) {
+                mobileHint.style.display = 'inline';
+            }
+        });
+
+        btnTypePickup.addEventListener('click', () => {
+            selectedOrderType = 'pickup';
+            btnTypePickup.classList.add('active');
+            btnTypeDelivery.classList.remove('active');
+
+            if (custAddressInput && custAddressInput.parentElement) {
+                custAddressInput.parentElement.style.display = 'none';
+            }
+
+            const badge = document.querySelector('.delivery-fee-badge');
+            if (badge) {
+                badge.style.display = 'none';
+            }
+
+            const mobileHint = document.querySelector('.mobile-delivery-hint');
+            if (mobileHint) {
+                mobileHint.style.display = 'none';
+            }
+        });
     }
 }
 
@@ -1245,7 +1292,7 @@ function sendWhatsAppOrder() {
         custNameInput.classList.remove('input-error');
     }
 
-    if (!address) {
+    if (selectedOrderType === 'delivery' && !address) {
         if (custAddressInput) {
             custAddressInput.classList.add('input-error');
             if (!hasError) custAddressInput.focus();
@@ -1256,7 +1303,10 @@ function sendWhatsAppOrder() {
     }
 
     if (hasError) {
-        showCustomAlert('يرجى كتابة الاسم الكريم وعنوان التوصيل بالتفصيل لنتمكن من إرسال طلبك عبر الواتساب!', 'بيانات التوصيل مطلوبة', 'fa-solid fa-user-pen');
+        const errorMsg = selectedOrderType === 'delivery'
+            ? 'يرجى كتابة الاسم الكريم وعنوان التوصيل بالتفصيل لنتمكن من إرسال طلبك عبر الواتساب!'
+            : 'يرجى كتابة الاسم الكريم لنتمكن من تجهيز طلبك للاستلام!';
+        showCustomAlert(errorMsg, 'بيانات الطلب مطلوبة', 'fa-solid fa-user-pen');
         return;
     }
 
@@ -1264,7 +1314,7 @@ function sendWhatsAppOrder() {
     try {
         localStorage.setItem('abu_eyad_cust_name', name);
         localStorage.setItem('abu_eyad_cust_phone', phoneNum);
-        localStorage.setItem('abu_eyad_cust_address', address);
+        if (address) localStorage.setItem('abu_eyad_cust_address', address);
     } catch (e) {
         console.log('localStorage save error:', e);
     }
@@ -1282,9 +1332,10 @@ function sendWhatsAppOrder() {
 
     let text = `*طلب جديد - مطعم أبو إياد السوري*\n`;
     text += `---------------------------------\n`;
+    text += `*نوع الطلب:* ${selectedOrderType === 'pickup' ? '🏪 استلام من المكان' : '🛵 توصيل إلى المنزل'}\n`;
     text += `*اسم العميل:* ${name}\n`;
     if (phoneNum) text += `*رقم التواصل:* ${phoneNum}\n`;
-    text += `*العنوان والمنطقة:* ${address}\n`;
+    if (selectedOrderType === 'delivery' && address) text += `*العنوان والمنطقة:* ${address}\n`;
     if (notes) text += `*ملاحظات:* ${notes}\n`;
     text += `---------------------------------\n`;
     text += `*تفاصيل أصناف الطلب:*\n\n`;
@@ -1298,7 +1349,9 @@ function sendWhatsAppOrder() {
 
     text += `\n---------------------------------\n`;
     text += `*المجموع الإجمالي:* *${total} ج.م*\n`;
-    text += `🛵 *(ستتم إضافة رسوم التوصيل حسب المنطقة)*\n`;
+    if (selectedOrderType === 'delivery') {
+        text += `🛵 *(ستتم إضافة رسوم التوصيل حسب المنطقة)*\n`;
+    }
     text += `---------------------------------\n`;
     text += `شكراً لاختياركم مطعم أبو إياد السوري!`;
 

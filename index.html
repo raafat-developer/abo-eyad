@@ -77,9 +77,11 @@
                             <div class="contact-row phone-row">
                                 <i class="fa-solid fa-phone"></i>
                                 <span dir="ltr">
-                                    <a href="tel:01042822787" class="contact-phone-link" title="اتصال بـ 01042822787">01042822787</a>
+                                    <a href="tel:01042822787" class="contact-phone-link"
+                                        title="اتصال بـ 01042822787">01042822787</a>
                                     -
-                                    <a href="tel:01042827982" class="contact-phone-link" title="اتصال بـ 01042827982">01042827982</a>
+                                    <a href="tel:01042827982" class="contact-phone-link"
+                                        title="اتصال بـ 01042827982">01042827982</a>
                                 </span>
                             </div>
                             <a href="https://wa.me/201212904055" target="_blank" rel="noopener noreferrer"
@@ -236,8 +238,23 @@
                         <div class="customer-info-section">
                             <div class="customer-info-title">
                                 <i class="fa-solid fa-user-pen"></i>
-                                <span>بيانات التوصيل للطلب</span>
+                                <span>بيانات الطلب</span>
                             </div>
+
+                            <!-- Order Type Selector (Delivery vs Pickup) -->
+                            <div class="order-type-selector">
+                                <label class="order-type-btn active" id="btn-type-delivery">
+                                    <input type="radio" name="order-type" value="delivery" checked hidden>
+                                    <i class="fa-solid fa-motorcycle"></i>
+                                    <span>توصيل للمنزل</span>
+                                </label>
+                                <label class="order-type-btn" id="btn-type-pickup">
+                                    <input type="radio" name="order-type" value="pickup" hidden>
+                                    <i class="fa-solid fa-store"></i>
+                                    <span>استلام من المكان</span>
+                                </label>
+                            </div>
+
                             <div class="cust-input-group">
                                 <label for="cust-name"><i class="fa-solid fa-user"></i> الاسم الكريم <span
                                         class="req">*</span></label>

@@ -1223,6 +1223,52 @@ body::before {
     border-bottom: 1px dashed rgba(255, 215, 0, 0.2);
 }
 
+/* Order Type Selector (Delivery vs Pickup Toggle) */
+.order-type-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    background: #0E0E12;
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #2D2D38;
+}
+
+.order-type-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    user-select: none;
+}
+
+.order-type-btn i {
+    font-size: 13px;
+}
+
+.order-type-btn:hover {
+    color: var(--text-white);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.order-type-btn.active {
+    background: linear-gradient(135deg, var(--warm-orange), var(--fiery-red));
+    color: #FFFFFF;
+    box-shadow: 0 2px 10px rgba(255, 107, 0, 0.4);
+}
+
+.order-type-btn.active i {
+    color: #FFFFFF;
+}
+
 .cust-input-group {
     display: flex;
     flex-direction: column;
