@@ -1096,7 +1096,7 @@ body::before {
     display: none;
 }
 
-/* Order Summary Panel */
+/* Order Summary Panel (Desktop Sticky Drawer) */
 .order-summary-panel {
     background-color: var(--dark-card);
     border: 2px solid var(--dark-border);
@@ -1107,8 +1107,10 @@ body::before {
     justify-content: space-between;
     position: sticky;
     top: 90px;
-    height: fit-content;
-    max-height: calc(100vh - 120px);
+    height: calc(100vh - 110px);
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 .panel-header {
@@ -1118,6 +1120,7 @@ body::before {
     border-bottom: 1px solid #2D2D38;
     padding-bottom: 12px;
     margin-bottom: 16px;
+    flex-shrink: 0;
 }
 
 .panel-header h3 {
@@ -1137,14 +1140,14 @@ body::before {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-height: 400px;
-    min-height: 120px;
+    max-height: 240px;
+    min-height: 100px;
     overflow-y: auto;
     padding: 10px;
     background-color: rgba(15, 15, 20, 0.6);
     border: 1px solid #2D2D38;
     border-radius: var(--radius-md);
-    flex-shrink: 0;
+    flex-shrink: 1;
 }
 
 .empty-cart-state {
@@ -1205,6 +1208,7 @@ body::before {
     margin-top: 14px;
     margin-bottom: 14px;
     box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
 }
 
 .customer-info-title {
@@ -1264,8 +1268,10 @@ body::before {
 }
 
 .cust-input-group textarea {
-    resize: vertical;
-    min-height: 52px;
+    resize: none;
+    height: 56px;
+    min-height: 56px;
+    max-height: 56px;
 }
 
 .cust-input-group input:focus,
@@ -1304,6 +1310,8 @@ body::before {
     border-top: 1px solid #2D2D38;
     padding-top: 16px;
     margin-top: 16px;
+    padding-bottom: 10px;
+    flex-shrink: 0;
 }
 
 .cart-total-row {
